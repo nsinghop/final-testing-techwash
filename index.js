@@ -52,7 +52,7 @@ let cryptoNews = null;
 
 async function fetchCryptoNews() {
   try {
-    let response = axios.get("https://newsapi.org/v2/everything?q=crypto&sortBy=publishedAt&apiKey=9ee7e0e00e204f6aa891ce6e57ae98ea")
+    let response = await axios.get("https://newsapi.org/v2/everything?q=crypto&sortBy=publishedAt&apiKey=9ee7e0e00e204f6aa891ce6e57ae98ea")
     cryptoNews = response.data
   } catch (error) {
     console.log("Error fetchCryptoNews:", error.message)
@@ -66,7 +66,7 @@ app.get('/api/crypto',(req,res)=>{
   if (cryptoNews){
     res.json(cryptoNews)
   }else{
-    req.status(503).json({error: "Unable to Featch Data"})
+    res.status(503).json({ error: "Unable to Fetch Data" });
   };
 })
 
@@ -78,7 +78,7 @@ let startupNews = null;
 
 async function fetchStartupNews() {
   try {
-    let response = axios.get("https://newsapi.org/v2/everything?q=startup+startups&sortBy=publishedAt&apiKey=9ee7e0e00e204f6aa891ce6e57ae98ea")
+    let response = await axios.get("https://newsapi.org/v2/everything?q=startup+startups&sortBy=publishedAt&apiKey=9ee7e0e00e204f6aa891ce6e57ae98ea")
     startupNews = response.data
   } catch (error) {
     console.log("Error fetchStartupNess:", error.message)
@@ -92,7 +92,7 @@ app.get('/api/startup',(req,res)=>{
   if (startupNews){
     res.json(startupNews)
   }else{
-    req.status(503).json({error: "Unable to Featch Data"})
+    res.status(503).json({ error: "Unable to Fetch Data" });
   };
 })
 
@@ -105,7 +105,7 @@ let techStartups = null;
 
 async function fetchTechStartupNews() {
   try {
-    let response = axios.get("https://newsapi.org/v2/everything?q=tech+startup&sortBy=publishedAt&apiKey=9ee7e0e00e204f6aa891ce6e57ae98ea")
+    let response = await axios.get("https://newsapi.org/v2/everything?q=tech+startup&sortBy=publishedAt&apiKey=9ee7e0e00e204f6aa891ce6e57ae98ea")
     techStartups = response.data
   } catch (error) {
     console.log("Error fetchStartupNess:", error.message)
@@ -119,7 +119,7 @@ app.get('/api/techstartup',(req,res)=>{
   if (techStartups){
     res.json(techStartups)
   }else{
-    req.status(503).json({error: "Unable to Featch Data"})
+    res.status(503).json({ error: "Unable to Fetch Data" });
   };
 })
 
@@ -131,7 +131,7 @@ let aiNews = null;
 
 async function fetchAINews() {
   try {
-    let response = axios.get("https://newsapi.org/v2/everything?q=AI&sortBy=publishedAt&apiKey=9ee7e0e00e204f6aa891ce6e57ae98ea")
+    let response = await axios.get("https://newsapi.org/v2/everything?q=AI&sortBy=publishedAt&apiKey=9ee7e0e00e204f6aa891ce6e57ae98ea")
     aiNews = response.data
   } catch (error) {
     console.log("Error fetchAINews:", error.message)
@@ -145,7 +145,7 @@ app.get('/api/ainews',(req,res)=>{
   if (aiNews){
     res.json(aiNews)
   }else{
-    req.status(503).json({error: "Unable to Featch Data"})
+    res.status(503).json({ error: "Unable to Fetch Data" });
   };
 })
 
@@ -159,7 +159,7 @@ let inTechNews = null;
 
 async function fetchInTechNews() {
   try {
-    let response = axios.get("https://newsapi.org/v2/everything?q=tech+india&language=en&sortBy=publishedA&apiKey=9ee7e0e00e204f6aa891ce6e57ae98ea")
+    let response = await axios.get("https://newsapi.org/v2/everything?q=tech+india&language=en&sortBy=publishedAt&apiKey=9ee7e0e00e204f6aa891ce6e57ae98ea")
     inTechNews = response.data
   } catch (error) {
     console.log("Error fetchAINews:", error.message)
@@ -173,7 +173,7 @@ app.get('/api/intechnews',(req,res)=>{
   if (inTechNews){
     res.json(inTechNews)
   }else{
-    req.status(503).json({error: "Unable to Featch Data"})
+    res.status(503).json({ error: "Unable to Fetch Data" });
   };
 })
 
@@ -188,7 +188,7 @@ let businessNews = null;
 
 async function fetchBusinessNews() {
   try {
-    let response = axios.get("https://newsapi.org/v2/top-headlines?category=business&apiKey=9ee7e0e00e204f6aa891ce6e57ae98ea")
+    let response = await axios.get("https://newsapi.org/v2/top-headlines?category=business&apiKey=9ee7e0e00e204f6aa891ce6e57ae98ea")
     businessNews = response.data
   } catch (error) {
     console.log("Error fetchAINews:", error.message)
@@ -202,7 +202,7 @@ app.get('/api/bussiness',(req,res)=>{
   if (businessNews){
     res.json(businessNews)
   }else{
-    req.status(503).json({error: "Unable to Featch Data"})
+    res.status(503).json({ error: "Unable to Fetch Data" });
   };
 })
 
